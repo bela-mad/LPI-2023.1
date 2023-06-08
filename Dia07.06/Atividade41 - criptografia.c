@@ -4,23 +4,30 @@
 
 int main(void) {
 
-  int aux, tam_string=0;
-  char mensagem[20];
+  int aux, tam_string=0, chave=3;
+  char mensagem[51];
 
-  printf("Ola! Digite a mensagem criptografada para ser convertida: ");
-  scanf("%s", mensagem);
+  printf("\n\tOla! Digite a mensagem criptografada para ser convertida: ");
+  scanf("%50[^\n]s",mensagem);
 
   //tamanho da string
   for (aux=0; mensagem[aux]!='\0' ;aux++) {
     tam_string++;
   }
+  
+  //criptografar a mensagem
+  for (aux=0; aux<=tam_string ;aux++) {
+    mensagem[aux]=mensagem[aux]+chave;
+  }
+
+  printf("\n\tMensagem criptografada: \"%s\"", mensagem);
 
   //descriptografar a mensagem
   for (aux=0; aux<=tam_string ;aux++) {
-    mensagem[aux]=mensagem[aux]+3;
+    mensagem[aux]=mensagem[aux]-chave;
   }
-
-  printf("A mensagem descriptografada eh \"%s\"", mensagem);
+  
+  printf("\n\tMensagem descriptografada: \"%s\"", mensagem);
   
   return 0;
 }

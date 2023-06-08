@@ -4,11 +4,11 @@
 
 int main(void) {
   
-  int aux, cont1, cont2=0, tam_string=0;
+  int aux, cont=0, tam_string=0;
   char palavra[21], contrario[21];
   
   printf("Ola! Digite uma palavra de ate 20 caracteres: ");
-  scanf("%s", palavra);
+  scanf("%20[^\n]s",palavra);
 
   //contar tamanho do string
   for (aux=0; palavra[aux]!='\0' ;aux++) {
@@ -16,9 +16,9 @@ int main(void) {
   }
   
   //atribuir valores contrarios a uma nova string
-  for (cont1=tam_string-1; cont1>=0 ;cont1--) {
-    contrario[cont2]=palavra[cont1];
-    cont2++;
+  for (aux=tam_string-1; aux>=0 ;aux--) {
+    contrario[cont]=palavra[aux];
+    cont++;
   }
   
   printf("\nString digitada: %s", palavra);

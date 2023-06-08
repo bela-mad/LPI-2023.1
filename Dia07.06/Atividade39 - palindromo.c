@@ -4,39 +4,36 @@
 
 int main(void) {
   
-  char palavra_original[20], palavra_invertida[20];
-  int cont;
+  char palavra[21], contrario[21];
+  int aux, cont=0, i, tam_string=0;
 
   printf("Digite o que quiser com o limite de 20 caracteres: ");
-  scanf("%20[^\n]s",palavra_original);
+  scanf("%20[^\n]s",palavra);
 
-  //Descobre o tamanho da string
-  for(cont=0; cont<=20; cont++){
-    palavra_original[cont];
-    if (palavra_original[cont]=='\0'){
-      break;
-    }
+  //contar tamanho do string
+  for (aux=0; palavra[aux]!='\0' ;aux++) {
+    tam_string++;
   }
   
-  //Inverte a string
-  cont--;
-  for (int aux=0, i=cont; i>=0; i--){
-    palavra_invertida[aux]= palavra_original[i];
-      aux++;
+  //atribuir valores contrarios a uma nova string
+  for (aux=tam_string-1; aux>=0 ;aux--) {
+    contrario[cont]=palavra[aux];
+    cont++;
   }
-  printf("\nA palavra invertida e: %s", palavra_invertida);
+  printf("\nString digitada: %s", palavra);
+  printf("\nString ao contrario: %s\n", contrario);
 
-  //Compara as strings
-  for(int aux=0, i=cont; i>=0; i--){
-    if (palavra_invertida[aux] != palavra_original[aux]){
-      printf("\nNao e um palindromo");
+  //comparar as strings
+  for(aux=tam_string-1; aux>=0; aux--){
+    if (contrario[aux] != palavra[aux]){
+      printf("\nNao eh um palindromo");
       break;
     }
     else{
-      cont--;
+      tam_string--;
     }
   }
-  if (cont<0) printf("\nE um palindromo");
+  if (tam_string==0) printf("\nEh um palindromo");
   
   return 0;
 

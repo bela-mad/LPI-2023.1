@@ -22,6 +22,7 @@ int main(void) {
     numM[cont]=aux%10+'0';
     aux=aux/10;
   }
+  
   printf("\n\tValor em string: ");
 
   for (cont=tam-1; cont>=0 ; cont--) {
